@@ -1,0 +1,57 @@
+SITE DE CASSANDRE GUIOT — MODE D'EMPLOI
+=======================================
+
+OUVRIR LE SITE EN LOCAL
+  Double-clique sur index.html (aucune installation).
+
+STRUCTURE
+  index.html        la page unique
+  css/style.css     tout le style (tailles, couleurs, durées) — voir le bloc :root en haut
+  js/data.js        PROJETS : titres, légendes, textes, ordre des images, grilles
+  js/main.js        comportement + C.V. (objet CV) + réglages généraux (objet SITE)
+  images/<projet>/p1/  images du carrousel (pop-up 1), dans l'ordre 01, 02, 03…
+  images/<projet>/p2/  images de la grille (pop-up 2), dans l'ordre 01, 02, 03…
+  fonts/            Monument Grotesk (variable + italique pour le survol)
+  assets/           favicon (le petit pictogramme de l'onglet)
+
+REMPLACER UNE IMAGE
+  ATTENTION : la grille du pop-up 2 et l'aperçu au survol utilisent des miniatures allégées rangées dans un
+  sous-dossier m/ (ex. images/le-panier/p2/m/03.jpg, 1100 px de large). Si tu remplaces images/le-panier/p2/03.jpg,
+  remplace aussi m/03.jpg (même nom, version 1100 px) pour que la grille soit à jour. Le carrousel du pop-up 1
+  et l'image agrandie utilisent les fichiers principaux.
+  Garde le même nom de fichier (ex. images/le-panier/p2/03.jpg) et les mêmes proportions.
+  Les images fournies ici sont déjà optimisées pour le web (2400 px max, JPEG qualité 85).
+  Si tu remets tes originaux, exporte en JPEG 2000–2400 px de large pour garder un site rapide.
+
+MODIFIER UN TEXTE / UNE DATE
+  - Titres, légendes, textes des pop-ups : js/data.js (chercher le nom du projet).
+  - C.V. : js/main.js, objet CV.
+  - « Dernière mise à jour » : js/main.js, SITE.updated.
+  - Les espaces fines insécables (avant ; : ! ? » et après «) et la gestion des veuves/orphelins
+    sont ajoutées automatiquement : colle simplement tes textes bruts.
+
+RÉGLAGES RAPIDES (css/style.css, bloc :root)
+  --fs-title    taille des grands titres        --w-title / --w-text  épaisseurs
+  --gap         espace entre images             --fade                durée du fondu (0,8 s)
+  --preview-w   largeur de l'aperçu au survol   js/main.js SITE.interval  durée par image (2000 ms)
+
+COMPORTEMENT
+  - Survol d'un titre de projet : la ligne passe en Monument italique, un bandeau coloré se déploie
+    (4 couleurs en alternance : --c1 à --c4 dans css/style.css) et un aperçu suit la souris.
+  - Le curseur est un petit rond ; la main s'affiche sur tout ce qui est cliquable.
+  - Clic sur un titre : carrousel (pop-up 1). « (++) » : fiche détaillée (pop-up 2).
+  - Fermer : « (Fermer) », clic en dehors (n'ouvre rien d'autre), ou touche Échap.
+  - Clic sur une image de la grille : image agrandie (flèches et touches ← → pour naviguer).
+  - Les vidéos se lancent seules, en boucle, sans commandes, sans son.
+  - Chaque projet a une adresse directe : index.html#le-panier  /  #le-panier/info  /  #cv
+
+PUBLIER
+  GitHub Pages, Netlify ou Cloudflare Pages : envoie tout le dossier tel quel (index.html à la racine).
+  Un nom de domaine se branche ensuite depuis la configuration de l'hébergeur.
+
+FORMULAIRE DE CONTACT (Web3Forms, gratuit : 250 messages/mois)
+  1. Va sur web3forms.com, saisis l'adresse qui doit RECEVOIR les messages : tu reçois une « Access Key » par mail.
+  2. Ouvre js/main.js, cherche formKey: "" (objet SITE, en haut) et colle la clé entre les guillemets.
+  3. C'est tout : « Contact (↗) » ouvre alors le formulaire. Sans clé, il ouvre ton application mail.
+  (La clé est visible dans le code : c'est normal. Une fois le nom de domaine acheté, tu peux la restreindre
+   à ce domaine dans ton tableau de bord Web3Forms.)

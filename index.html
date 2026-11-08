@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cassandre Guiot</title>
+<meta name="description" content="Cassandre Guiot — graphiste freelance. Édition, typographie, photographie, céramique, illustration.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ACCUEIL : la liste est générée par js/main.js à partir de js/data.js -->
+<main id="home" aria-label="Accueil">
+  <ul id="list"></ul>
+  <p id="updated" class="small"></p>
+</main>
+
+<!-- Pop-up 1 (moitié gauche) : contact ou carrousel d'un projet -->
+<section id="pop1" class="pop pop1" hidden></section>
+<!-- Pop-up 2 (moitié droite) : C.V. ou fiche détaillée d'un projet -->
+<section id="pop2" class="pop pop2" hidden></section>
+
+<!-- Aperçu qui suit la souris au survol d'un titre -->
+<div id="preview" aria-hidden="true"></div>
+
+<!-- Image agrandie (clic sur une image du pop-up 2) -->
+<div id="lightbox" hidden>
+  <button class="lb-x" aria-label="Fermer"></button>
+  <button class="lb-arrow lb-prev" aria-label="Précédent"></button>
+  <div class="lb-stage"></div>
+  <button class="lb-arrow lb-next" aria-label="Suivant"></button>
+</div>
+
+<!-- Formulaire de contact (actif dès que SITE.formKey est renseignée dans js/main.js) -->
+<div id="cf" hidden>
+  <form class="cf-card" role="dialog" aria-modal="true" aria-labelledby="cf-title" novalidate>
+    <header><h2 id="cf-title">Contact</h2><button type="button" class="cf-x" aria-label="Fermer">×</button></header>
+    <input type="email" name="email" placeholder="De : (votre adresse e-mail)…" autocomplete="email" required>
+    <textarea name="message" placeholder="Écrivez votre message…" required></textarea>
+    <input type="text" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="cf-msg" role="status" aria-live="polite"></p>
+    <footer><button type="button" class="cf-cancel">Annuler</button><button type="submit" class="cf-send">Envoyer</button></footer>
+  </form>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
